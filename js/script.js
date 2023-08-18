@@ -1,41 +1,44 @@
-var palavras = [
+let palavras = [
     "ABACATE","ABACAXI","ACEROLA","AÇAÍ","ARAÇA","BACABA","BACURI",
     "BANANA","CAJÁ","CAJÚ","CARAMBOLA","CUPUAÇU","GRAVIOLA","GOIABA","JABUTICABA",
     "JENIPAPO","MAÇÃ","MANGABA","MANGA","MARACUJÁ","MURICI","PEQUI","PITANGA",
     "PITAYA","SAPOTI","TANGERINA","UMBU","UVA","UVAIA"];
 
-var palavrasMinusculas = palavras.map(function(palavra) 
-{return palavra.toLowerCase();});
-var palavraEscolhida = palavrasMinusculas[Math.floor(Math.random() * palavrasMinusculas.length)];
-var letrasCorretas = [];
-
-var palavraExibida = document.getElementById("palavraExibida");
-var tentativasRestantesElement = document.getElementById("tentativasRestantes");
-var forcaImagem = document.getElementById("forca-imagem");
-var tentativaInput = document.getElementById("tentativaInput");
-var mensagem = document.getElementById("mensagem");
-var verificar = document.getElementById("verificar");
-var reiniciarJogo = document.getElementById("jogar-novamente");
+let palavrasMinusculas = palavras.map(palavra => palavra.toLowerCase());
+let palavraEscolhida = palavrasMinusculas[Math.floor(Math.random() * palavrasMinusculas.length)];
+let letrasCorretas = [];
+let palavraExibida = document.getElementById("palavraExibida");
+let tentativasRestantesElement = document.getElementById("tentativasRestantes");
+let forcaImagem = document.getElementById("forca-imagem");
+let tentativaInput = document.getElementById("tentativaInput");
+let mensagem = document.getElementById("mensagem");
+let verificar = document.getElementById("verificar");
+let reiniciarJogo = document.getElementById("jogar-novamente");
 palavraExibida.textContent = "_".repeat(palavraEscolhida.length);
 tentativasRestantesElement.textContent = 5;
 
 function verificarTentativa() {
-    var tentativa = tentativaInput.value.toLowerCase();
+    let tentativa = tentativaInput.value.toLowerCase();
     
-    if (tentativa.length != 1) {
+    if (tentativa.length != 1) 
         mensagem.textContent = "Informe apenas uma letra.";
-        return;
-    }
 
-    if (letrasCorretas.includes(tentativa)) {
+    if (letrasCorretas.includes(tentativa)) 
         mensagem.textContent = "Você já tentou essa letra.";
-        return;
-    }
-
+    
     if (palavraEscolhida.includes(tentativa)) {
         letrasCorretas.push(tentativa);
 
-        var novaPalavraExibida = "";
+        StatusWin();
+    } 
+    else 
+        StatusFail();
+
+    tentativaInput.value = "";
+}
+
+function StatusWin(){
+    var novaPalavraExibida = "";
         for (var i = 0; i < palavraEscolhida.length; i++) {
             if (letrasCorretas.includes(palavraEscolhida[i])) {
                 novaPalavraExibida += palavraEscolhida[i];
@@ -52,9 +55,10 @@ function verificarTentativa() {
             mensagem.style.color = "rgb(0, 217, 0)";
             verificar.disabled = true;
         }
-    } 
-    else {
-        var tentativasRestantes = parseInt(tentativasRestantesElement.textContent) - 1;
+}
+
+function StatusFail(){
+    var tentativasRestantes = parseInt(tentativasRestantesElement.textContent) - 1;
         tentativasRestantesElement.textContent = tentativasRestantes;
         
         if (tentativasRestantes == 0) {
@@ -85,9 +89,6 @@ function verificarTentativa() {
             mensagem.textContent = "Tente novamente.";
             forcaImagem.src = "img/forca01.png";
         }
-    }
-
-    tentativaInput.value = "";
 }
 
 function reiniciarPagina() {
