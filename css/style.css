@@ -1,0 +1,110 @@
+body
+{
+    padding: 0px;
+    margin: 0px;
+    background-color: gray;
+}
+
+header
+{
+    height: 45vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Corpo-Jogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 1vh;
+}
+
+img{
+    width: 300px;
+}
+
+.Pergunta-Jogo{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+}
+
+.Pergunta-Jogo input{
+    margin-right: 40px;
+}
+
+.Jogo-Informacoes{
+    display: block;
+}
+
+.Jogo-Informacoes p{
+    margin-bottom: -15px;
+    font-family: sans-serif;
+}
+
+input{
+    border: 2px solid black;
+    border-radius: 6px;
+    margin-top: 24px ;
+}
+
+.Jogo-Informacoes button{
+    width: 80px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid rgb(0, 217, 0);
+    color: rgb(0, 217, 0);
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.Jogo-Informacoes button:hover{
+    border: 2px solid rgb(0, 190, 0);
+    color: rgb(0, 190, 0);
+}
+
+#mensagem{
+    height: 4px;
+    font-weight: bold;
+}
+
+#jogar-novamente{
+    width: 140px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.reiniciar-jogo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -140px;
+}
+
+.reiniciar-jogo button{
+    display: none;
+    padding: 4px;
+    margin-top: 20px;
+    transition: .2s;
+}
+
+#jogar-novamente:hover{
+    background-color: black;
+    color: white;
+}
+
+#Dica{
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
