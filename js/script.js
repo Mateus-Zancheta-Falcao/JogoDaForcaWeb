@@ -9,8 +9,6 @@ var palavrasMinusculas = palavras.map(function(palavra)
 var palavraEscolhida = palavrasMinusculas[Math.floor(Math.random() * palavrasMinusculas.length)];
 var letrasCorretas = [];
 
-console.log(palavraEscolhida);
-
 var palavraExibida = document.getElementById("palavraExibida");
 var tentativasRestantesElement = document.getElementById("tentativasRestantes");
 var forcaImagem = document.getElementById("forca-imagem");
